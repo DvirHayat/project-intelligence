@@ -224,52 +224,6 @@ The system should answer using project data.
 
 ---
 
-# Recommended Technology Stack
-
-## Analytics Layer
-
-- Python
-- Pandas
-- NumPy
-
-## Database
-
-- PostgreSQL
-
-## Data Collection
-
-- GitHub API
-- Jira API or exported CSV files
-
-## Backend
-
-- FastAPI
-
-## Dashboard Options
-
-Option A:
-- React + Dashboard Components
-
-Option A:
-- Dash, Plotly 
-
----
-
-# Industrial Engineering Concepts Demonstrated
-
-- Process Analysis
-- KPI Design
-- Workflow Optimization
-- Bottleneck Detection
-- Resource Planning
-- Forecasting
-- Risk Management
-- Decision Support Systems
-- Project Management Analytics
-- Operations Research
-
----
-
 # Expected Deliverables
 
 1. Working dashboard
