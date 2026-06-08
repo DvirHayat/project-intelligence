@@ -9,9 +9,12 @@ services:
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
-    build: ./backend
+    build:  
+      context: ./backend
+      dockerfile: ../infra/docker/backend.Dockerfile
 
     ports:
       - "8000:8000"
