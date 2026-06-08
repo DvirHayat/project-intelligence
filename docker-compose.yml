@@ -22,8 +22,38 @@ services:
     depends_on:
       - postgres
 
+    volumes:
+      - ./backend:/app   # useful for dev (hot reload)
+    
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+    restart: unless-stopped
+    
     env_file:
       - .env.backend
+  frontend:
+    build:
+      context: ./frontend/Project_Intelligence_Frontend
+      dockerfile: ../../infra/docker/frontend.Dockerfile
+
+    container_name: frontend
+
+    ports:
+      - "5173:5173"
+
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+    volumes:
+      - ./frontend/Project_Intelligence_Frontend:/app
+      - /app/node_modules
+
+    command: npm run dev -- --host 0.0.0.0
+
+    depends_on:
+      - backend
+
+    restart: unless-stopped
 
 volumes:
   postgres_data:
